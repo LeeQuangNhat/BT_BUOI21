@@ -46,7 +46,7 @@ function addnhanVien(){
 
     var isValid = true
     isValid &= 
-        checkUsername(nhanVien.tknv, 'tbTKNV') &&
+        // checkUsername(nhanVien.tknv, 'tbTKNV') &&
         checkEmptyValue(nhanVien.tknv, 'tbTKNV') && 
         checkMinMaxValue(nhanVien.tknv, 'tbTKNV', 4, 6)
     isValid &= 
@@ -180,13 +180,16 @@ function searchNhanVien(event){
     var newKeyWord = removeVietnameseTones(keyword)
     var arrNhanVienFilter = []
     for (var i =0; i<arrNhanVien.length; i++){
-        var NhanVien = arrNhanVien[i]
-        var newTenNhanVien = removeVietnameseTones(NhanVien.xepLoai().trim().toLowerCase())
+        var nhanVien = arrNhanVien[i]
+        var newNhanVien = new NhanVien()
+        Object.assign(newNhanVien, nhanVien)
+        var newTenNhanVien = removeVietnameseTones(newNhanVien.xepLoai().trim().toLowerCase())
         if(newTenNhanVien.includes(newKeyWord)){
-            arrNhanVienFilter.push(NhanVien)
+            arrNhanVienFilter.push(nhanVien)
         }
     }
     renderNhanVien(arrNhanVienFilter)
+    console.log(arrNhanVienFilter)
 }
 
 // 5. Lưu trữ dữ liệu trong LocalStorage
