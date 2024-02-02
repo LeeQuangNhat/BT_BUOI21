@@ -140,15 +140,15 @@ function checkChucVu(value, idSpan) {
   }
 }
 
-// function checkUsername(value, idSpan) {
-//     for (var i = 0; i < arrNhanVien.length; i++) {
-//       if (arrNhanVien[i].tknv == value) {
-//           document.getElementById(idSpan).innerHTML = 'Tên tài khoản này đã tồn tại'
-//           document.getElementById(idSpan).style.display = 'inline-block'
-//           return false
-//       }
-//     }
-//   document.getElementById(idSpan).innerHTML = ''
-//   document.getElementById(idSpan).style.display = 'none'
-//   return true
-// }
+function checkUsername(value, idSpan) {
+    for (var i = 0; i < arrNhanVien.length; i++) {
+      if (arrNhanVien[i].tknv == value) {
+          document.getElementById(idSpan).innerHTML = 'Tên tài khoản này đã tồn tại'
+          document.getElementById(idSpan).style.display = 'inline-block'
+          return false
+      }
+    }
+  document.getElementById(idSpan).innerHTML = ''
+  document.getElementById(idSpan).style.display = 'none'
+  return true
+}

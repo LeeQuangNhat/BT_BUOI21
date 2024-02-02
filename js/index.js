@@ -34,6 +34,7 @@ function NhanVien(){
         return xepLoai
     }
 }
+document.getElementById('btnCapNhat').disabled = true
 // 1. thêm nhân viên
 var arrNhanVien = []
 function addnhanVien(){
@@ -142,6 +143,7 @@ function getInfoNhanVien(tknv){
     arrInput[z].value = NhanVien[id]
     }
     document.getElementById('btnThemNV').disabled = true
+    document.getElementById('btnCapNhat').disabled = false
 }
 
 function updateNhanVien() {
@@ -154,9 +156,8 @@ function updateNhanVien() {
             }
         }
         renderNhanVien(arrNhanVien)
-        document.getElementById('tknv').readOnly = false
+        // document.getElementById('tknv').readOnly = false
         saveLocalStorage('arrNhanVien', arrNhanVien)
-        document.getElementById('formQLNV').reset()
     } 
 }
 document.getElementById('btnCapNhat').onclick = updateNhanVien
